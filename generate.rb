@@ -22,4 +22,4 @@ data = YAML.load(data)['user'].with_indifferent_access
 result = StandaloneActionView.render(File.read('index.html.erb'), :locals => {:data => data})
 File.open('index.html','w'){|f| f.write result}
 
-PDFKit.new(result, :page_size => 'A4', :zoom => '3').to_file('cv.pdf')
+PDFKit.new(result, :page_size => 'A4', :zoom => '3', :print_media_type => true).to_file('cv.pdf')

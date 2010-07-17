@@ -4,15 +4,14 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   <title>Michael Grosser CV</title>
-  <style type="text/css">
+  <style type="text/css" media="all">
     body {
       margin-top: 1.0em;
       font-family: "Helvetica,FreeSans,Sans";
     }
-    h1 { font-size: 40px; color: #4c4200; margin-bottom: 3px; }
+    h1 { font-size: 40px; margin-bottom: 3px; }
     h1 a { text-decoration: none }
-    h2 { font-size: 20px; color: #4c4200; }
-    h3 { color: #4c4200; }
+    h2 { font-size: 20px; }
     pre { padding: 15px; color: white; background:black}
     img {border: 0}
 
@@ -20,22 +19,28 @@
       margin: 0 auto;
       width: 700px;
     }
-    .download{
+    #download{
       float: right;
       background: url("images/pdf.gif") no-repeat;
       padding-left:20px;
     }
     .centered{ text-align: center;}
   </style>
+
+  <style type="text/css" media="print">
+    a{color: black; text-decoration:none}
+    #download{display:none}
+    #badge{display:none}
+ </style>
 </head>
 
 <body>
 <% fork_me = image_tag('http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png', :style => 'position: absolute; top: 0; right: 0;') %>
-<%= link_to fork_me, 'http://github.com/grosser/cv' %>
+<%= link_to fork_me, 'http://github.com/grosser/cv', :id => 'badge' %>
 
 <div id="container">
 
-  <div class="download">
+  <div id="download">
     <%= link_to 'Download', "http://github.com/grosser/cv/raw/gh-pages/cv.pdf" %>
   </div>
 
@@ -61,7 +66,7 @@
   <h3>Experience</h3>
   <ul>
     <li>
-      <em>2008-present</em> Created/contributed to <%= data[:repositories].size %> OS projects<br />
+      <em>2008-present</em> Created & contributed to <%= data[:repositories].size %> OS projects<br />
       <small>
         <%= data[:repositories].sum{|p| p[:watchers] } %> watchers /
         <%= data[:repositories].sum{|p| p[:forks]} %> forks
@@ -71,14 +76,14 @@
       <em>2009-present</em> Rails Frontent+Backend developer at DaWanda.com<br />
       <small>
         Online marketplace with 500K users / 2M products / ~40 servers / 10K RPM / 60KLOC / 30M images.<br />
-        Nginx, Memcached, Cap, Varnish, Puppet, HaProxy, Xen, Redis, Git, MySql, Solr, Prototype, LESS, RPX, Gettext
+        Nginx, Memcached, Cap, Varnish, Puppet, HaProxy, Xen, Redis, Git, MySql, Solr, Prototype, LESS, RPXNow, Gettext
       </small>
     </li>
     <li>
       <em>2008-2009</em> Founder and Rails Frontent+Backend developer at rathershort.com<br />
       <small>
         Movie distribution platform, 20KLOC<br />
-        Passenger, Cap, HyperEstraier, jQuery, Haml, OpenId, OAuth, SQS, RPX, Gettext, XML-RPC, Google maps
+        Passenger, Cap, HyperEstraier, jQuery, Haml, OpenId, OAuth, SQS, RPXNow, Gettext, XML-RPC, Google maps
       </small>
     </li>
     <li>
