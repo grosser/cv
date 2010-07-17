@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Michael Grosser CV</title>
+  <style type="text/css">
+    body {
+      margin-top: 1.0em;
+      font-family: "Helvetica,FreeSans,Sans";
+    }
+    h1 { font-size: 40px; color: #4c4200; margin-bottom: 3px; }
+    h1 a { text-decoration: none }
+    h2 { font-size: 20px; color: #4c4200; }
+    h3 { color: #4c4200; }
+    pre { padding: 15px; color: white; background:black}
+    img {border: 0}
+
+    #container {
+      margin: 0 auto;
+      width: 700px;
+    }
+    .download{
+      float: right;
+      background: url("images/pdf.gif") no-repeat;
+      padding-left:20px;
+    }
+    .centered{ text-align: center;}
+  </style>
+</head>
+
+<body>
+<% fork_me = image_tag('http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png', :style => 'position: absolute; top: 0; right: 0;') %>
+<%= link_to fork_me, 'http://github.com/grosser/cv' %>
+
+<div id="container">
+
+  <div class="download">
+    <%= link_to 'Download', "http://github.com/grosser/cv/raw/gh-pages/cv.pdf" %>
+  </div>
+
+  <%= clearer %>
+  
+  <h1 class="centered">
+    <%= link_to 'Michael Grosser', "http://github.com/grosser" %>
+  </h1>
+
+  <p class=centered>
+    <%= mail_to 'grosser.michael@gmail.com' %><br />
+    <%= link_to 'pragmatig.com', 'http://pragmatig.com' %>
+    & <%= link_to 'github.com/grosser', 'http://github.com/grosser' %>
+    <br />
+    1983-11-21
+  </p>
+
+  <h3>Goal</h3>
+  <p>
+    Building great apps with Ruby/Ruby on Rails
+  </p>
+
+  <h3>Experience</h3>
+  <ul>
+    <li>
+      <em>2008-present</em> Created/contributed to <%= data[:repositories].size %> OS projects<br />
+      <small>
+        <%= data[:repositories].sum{|p| p[:watchers] } %> watchers /
+        <%= data[:repositories].sum{|p| p[:forks]} %> forks
+      </small>
+    </li>
+    <li>
+      <em>2009-present</em> Rails Frontent+Backend developer at DaWanda.com<br />
+      <small>
+        Online marketplace with 500K users / 2M products / ~40 servers / 10K RPM / 60KLOC / 30M images.<br />
+        Nginx, Memcached, Cap, Varnish, Puppet, HaProxy, Xen, Redis, Git, MySql, Solr, Prototype, LESS, RPX, Gettext
+      </small>
+    </li>
+    <li>
+      <em>2008-2009</em> Founder and Rails Frontent+Backend developer at rathershort.com<br />
+      <small>
+        Movie distribution platform, 20KLOC<br />
+        Passenger, Cap, HyperEstraier, jQuery, Haml, OpenId, OAuth, SQS, RPX, Gettext, XML-RPC, Google maps
+      </small>
+    </li>
+    <li>
+      <em>2006-2008</em> PHP-Rails clone developer at 20sec.net<br />
+      <small>
+        Smaller projects for variouse clients e.g. Triad, Hamburder abendblatt, Berlinale
+      </small>
+    </li>
+    <li>
+      <em>2006-2009</em> Media-informatics at TFH-Berlin<br />
+      <small>
+        Bachelor thesis on 'Test driven development with Ruby on Rails'
+      </small>
+    </li>
+    <li>
+      <em>2003-2006</em> Media-informatics at Technical University of Dresden<br />
+    </li>
+  </ul>
+
+  <h3>Skills</h3>
+  <ul>
+    <li>
+      Simple/pragmatic solutions<br />
+      <%= projects 'parallel', 'parallel_tests', 'url_store', 'tracked_plugins', 'random_records', 'text_filter', 'db_graph', 'smusher', 'rpx_now', 'fallback', 'scopify', 'restful_catch_all_route', 'cachy' %><br />
+    </li>
+    <li>
+      TDD<br />
+      <%= projects 'parallel_tests', 'single_test', 'autotest', 'rspec_enhanced_profile' %>,<br />
+      see test coverage of other Ruby/JS projects
+    </li>
+    <li>
+      Internationalisation<br />
+      <%= projects 'fast_gettext', 'gettext_i18n_rails', 'i18n_data', 'countries_and_languages', 'translated_attributes', 'get_pomo', 'autolang', 'gettext_test_log' %>
+    </li>
+    <li>
+      Metaprogramming<br />
+      <%= link_to 'mails without paths', 'http://pragmatig.com/2010/07/04/prevent-paths-in-mails-actionmailer/' %>,
+      <%= link_to 'nested attributes sti fix', 'http://pragmatig.com/2010/06/04/fixing-rails-nested-attributes-on-collections-with-sti/' %>,
+      <%= link_to 'memcache io timout fix', 'http://pragmatig.com/2010/01/06/fixing-memcache-io-timeout-for-memcache-client/' %>,
+      <%= link_to 'expires_in lambda', 'http://pragmatig.com/2009/12/02/rails-caching-with-expires_in-lambda/' %>,
+      <%= link_to 'touch_without_callbacks', 'http://pragmatig.com/2009/11/22/activerecord-touch_without_callbacks/' %>,
+      <%= link_to 'descriptive raise', 'http://pragmatig.com/2009/10/15/descriptive-raise-tired-of-exception-classobject-expected/' %>,
+      <%= link_to 'sport startup seedup', 'http://pragmatig.com/2009/09/27/speeding-up-slow-spork-startup-for-rails-2-3/' %>,
+      <%= link_to 'method parameter reflection', 'http://pragmatig.com/2009/07/05/ruby-monkey-reflection-to-get-method-parameter-names/' %>,
+      <%= link_to 'caller method', 'http://pragmatig.com/2009/07/01/getting-the-caller-method-in-ruby/' %>,
+      <%= link_to 'Array.to_ordered_hash', 'http://pragmatig.com/2009/06/08/array-to_ordered_hash-replacement-for-rails-2-3-activesupportorderedhash-new/' %>,
+      <%= link_to 'File.write', 'http://pragmatig.com/2009/06/01/ruby-file-write/' %>,
+      <%= link_to 'Actionview helpers on string', 'http://pragmatig.com/2009/05/30/all-actionview-helpers-on-strings/' %>,
+      ...
+    </li>
+    <li>Ruby on Rails + Sinatra + Middleware</li>
+  </ul>
+
+  <h3>Languages</h3>
+  <ul>
+    <li>native: Ruby, HTML, JS, CSS</li>
+    <li>fluent: SQL, Regexp, Markdown, RDoc, Git, Mongo, Redis</li>
+    <li>human: native German + fluent English + basic Chinese/Vietnamese/Russian/Latin</li>
+  </ul>
+</div>
+</body>
+</html>
