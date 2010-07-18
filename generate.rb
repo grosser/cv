@@ -2,24 +2,49 @@ require 'rubygems'
 require 'yaml'
 require 'open-uri'
 require 'active_support/core_ext/hash'
+require 'action_view'
 require 'pdfkit'
 
-$LOAD_PATH << 'lib'
-require 'standalone_action_view'
+module CvHelper
+  def url_for(x);x;end
 
-GITHUB_USER_DATA = 'http://github.com/api/v1/yaml/grosser'
-CACHE = '.cached_github_data.yml'
+  def clearer
+    '<div style="clear:both"></div>'.html_safe
+  end
 
-data = if File.exist?(CACHE)
-  File.read(CACHE)
-else
-  uncached = open(GITHUB_USER_DATA).read
-  File.open(CACHE,'w'){|f| f.write uncached }
-  uncached
+  def projects(*names)
+    names.map{|name| link_to_project(name) }.join(', ').html_safe
+  end
+
+  def link_to_project(name)
+    link_to name, "http://github.com/grosser/#{name}"
+  end
 end
 
-data = YAML.load(data)['user'].with_indifferent_access
-result = StandaloneActionView.render(File.read('index.html.erb'), :locals => {:data => data})
-File.open('index.html','w'){|f| f.write result}
+def data_from_github(username)
+  data = file_cache('.cached_github_data.yml') do
+    open("http://github.com/api/v1/yaml/#{username}").read
+  end
+  YAML.load(data)['user'].with_indifferent_access
+end
 
-PDFKit.new(result, :page_size => 'A4', :zoom => '3', :print_media_type => true).to_file('cv.pdf')
+def file_cache(file)
+  if File.exist?(file)
+    File.read(file)
+  else
+    uncached = yield
+    File.open(file,'w'){|f| f.write uncached }
+    uncached
+  end
+end
+
+def render(template, options)
+  klass = Class.new(ActionView::Base)
+  klass.send(:include, CvHelper)
+  view = klass.new
+  view.render(options.merge(:file => template))
+end
+
+html = render('index.html.erb', :locals => {:data => data_from_github('grosser')})
+File.open('index.html','w'){|f| f.write html }
+PDFKit.new(html, :page_size => 'A4', :zoom => '3', :print_media_type => true).to_file('cv.pdf')
