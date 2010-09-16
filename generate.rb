@@ -29,7 +29,7 @@ def data_from_github(username)
 end
 
 def file_cache(file)
-  if File.exist?(file)
+  if File.exist?(file) and File.mtime(file) > (Time.now - 24*60*60) # fresh ?
     File.read(file)
   else
     uncached = yield
