@@ -68,8 +68,8 @@
     <li>
       <em>2008-present</em> Created & contributed to <%= data[:repositories].size %> OS projects<br />
       <small>
-        <%= data[:repositories].sum{|p| p[:watchers] } %> watchers /
-        <%= data[:repositories].sum{|p| p[:forks]} %> forks
+        <%= data[:repositories].sum{|p| p[:watchers] - 1 } %> watchers /
+        <%= data[:repositories].select{|p| not p[:fork] }.sum{|p| p[:forks] } %> forks
       </small>
     </li>
     <li>
