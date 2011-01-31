@@ -51,8 +51,8 @@
   </h1>
 
   <p class=centered>
-    <%= mail_to 'grosser.michael@gmail.com' %><br />
-    <%= link_to 'pragmatig.com', 'http://pragmatig.com' %>
+    <%= mail_to 'michael@grosser.it' %><br />
+    <%= link_to 'grosser.it', 'http://grosser.it' %>
     & <%= link_to 'github.com/grosser', 'http://github.com/grosser' %>
     <br />
     1983-11-21
@@ -70,6 +70,7 @@
       <small>
         <%= data[:repositories].sum{|p| p[:watchers] - 1 } %> watchers /
         <%= data[:repositories].select{|p| not p[:fork] }.sum{|p| p[:forks] } %> forks
+        (on own projects)
       </small>
     </li>
     <li>
@@ -120,18 +121,20 @@
     </li>
     <li>
       Metaprogramming<br />
-      <%= link_to 'mails without paths', 'http://pragmatig.com/2010/07/04/prevent-paths-in-mails-actionmailer/' %>,
-      <%= link_to 'nested attributes sti fix', 'http://pragmatig.com/2010/06/04/fixing-rails-nested-attributes-on-collections-with-sti/' %>,
-      <%= link_to 'memcache io timout fix', 'http://pragmatig.com/2010/01/06/fixing-memcache-io-timeout-for-memcache-client/' %>,
-      <%= link_to 'expires_in lambda', 'http://pragmatig.com/2009/12/02/rails-caching-with-expires_in-lambda/' %>,
-      <%= link_to 'touch_without_callbacks', 'http://pragmatig.com/2009/11/22/activerecord-touch_without_callbacks/' %>,
-      <%= link_to 'descriptive raise', 'http://pragmatig.com/2009/10/15/descriptive-raise-tired-of-exception-classobject-expected/' %>,
-      <%= link_to 'sport startup seedup', 'http://pragmatig.com/2009/09/27/speeding-up-slow-spork-startup-for-rails-2-3/' %>,
-      <%= link_to 'method parameter reflection', 'http://pragmatig.com/2009/07/05/ruby-monkey-reflection-to-get-method-parameter-names/' %>,
-      <%= link_to 'caller method', 'http://pragmatig.com/2009/07/01/getting-the-caller-method-in-ruby/' %>,
-      <%= link_to 'Array.to_ordered_hash', 'http://pragmatig.com/2009/06/08/array-to_ordered_hash-replacement-for-rails-2-3-activesupportorderedhash-new/' %>,
-      <%= link_to 'File.write', 'http://pragmatig.com/2009/06/01/ruby-file-write/' %>,
-      <%= link_to 'Actionview helpers on string', 'http://pragmatig.com/2009/05/30/all-actionview-helpers-on-strings/' %>,
+      <%= link_to 'open-uri + ssl', 'http://grosser.it/2010/07/23/open-uri-without-ssl-https-verification/' %>
+      <%= link_to 'slow_update_all', 'http://grosser.it/2010/08/15/big-updates-block-database-use-slow_update_all/' %>
+      <%= link_to 'mails without paths', 'http://grosser.it/2010/07/04/prevent-paths-in-mails-actionmailer/' %>,
+      <%= link_to 'nested attributes sti fix', 'http://grosser.it/2010/06/04/fixing-rails-nested-attributes-on-collections-with-sti/' %>,
+      <%= link_to 'memcache io timout fix', 'http://grosser.it/2010/01/06/fixing-memcache-io-timeout-for-memcache-client/' %>,
+      <%= link_to 'expires_in lambda', 'http://grosser.it/2009/12/02/rails-caching-with-expires_in-lambda/' %>,
+      <%= link_to 'touch_without_callbacks', 'http://grosser.it/2009/11/22/activerecord-touch_without_callbacks/' %>,
+      <%= link_to 'descriptive raise', 'http://grosser.it/2009/10/15/descriptive-raise-tired-of-exception-classobject-expected/' %>,
+      <%= link_to 'sport startup seedup', 'http://grosser.it/2009/09/27/speeding-up-slow-spork-startup-for-rails-2-3/' %>,
+      <%= link_to 'method parameter reflection', 'http://grosser.it/2009/07/05/ruby-monkey-reflection-to-get-method-parameter-names/' %>,
+      <%= link_to 'caller method', 'http://grosser.it/2009/07/01/getting-the-caller-method-in-ruby/' %>,
+      <%= link_to 'Array.to_ordered_hash', 'http://grosser.it/2009/06/08/array-to_ordered_hash-replacement-for-rails-2-3-activesupportorderedhash-new/' %>,
+      <%= link_to 'File.write', 'http://grosser.it/2009/06/01/ruby-file-write/' %>,
+      <%= link_to 'Actionview helpers on string', 'http://grosser.it/2009/05/30/all-actionview-helpers-on-strings/' %>,
       ...
     </li>
     <li>
