@@ -28,6 +28,7 @@ GEM
     rack-test (0.5.7)
       rack (>= 1.0)
     tzinfo (0.3.24)
+    wkhtmltopdf-binary (0.9.5.1)
 
 PLATFORMS
   ruby
@@ -37,3 +38,4 @@ DEPENDENCIES
   activesupport
   i18n
   pdfkit
+  wkhtmltopdf-binary

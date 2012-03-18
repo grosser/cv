@@ -62,7 +62,7 @@
   <ul>
     <li>Build great products with Ruby/Ruby on Rails.</li>
     <li>Embrace simplicity and usability while being innovative and agile.</li>
-    <li>Sharing knowledge and learning from a great team that lives by pairing, code-review and TDD.</li>
+    <li>Sharing knowledge and learning from a great team that lives by pairing and TDD.</li>
     <li>Contribute to Open-source.</li>
   </ul>
 
@@ -77,14 +77,21 @@
       </small>
     </li>
     <li>
-      <em>2009-present</em> Rails Frontent+Backend developer at DaWanda.com<br />
+      <em>2011-present</em> Rails Engineer at PivotalLabs.com (San Franciscon)<br />
       <small>
-        Online marketplace with 1M users / 3M products / ~40 servers / 10K RPM / 60KLOC.<br />
-        Rails, Sinatra, Ruby, MySql, Git, HTML, CSS, jQuery+Prototype, Solr, Varnish, Puppet, Nginx, Memcached, Cap, HaProxy, Redis, Gettext, Xen
+        Awesome web-consultancy.<br/>
+        Rails, Postgres, Heroku, Git, Sass, jQuery, Backbone and a teaspoon of Ember.js
       </small>
     </li>
     <li>
-      <em>2008-2009</em> Founder and Rails Frontent+Backend developer at rathershort.com<br />
+      <em>2009-2011</em> Rails Frontend+Backend engineer at DaWanda.com (Berlin)<br />
+      <small>
+        EN/FR/DE Online marketplace with 1M users / 3M products / ~40 servers / 10K RPM / 60KLOC.<br />
+        Rails, Sinatra, Ruby, MySql, Git, HTML, CSS, jQuery+Prototype, Solr, Varnish, Node.js, Puppet, Nginx, Memcached, Cap, HaProxy, Redis, Gettext, Xen
+      </small>
+    </li>
+    <li>
+      <em>2008-2009</em> Founder and Rails Frontent+Backend engineer at rathershort.com (offline)<br />
       <small>
         Movie distribution platform, 20KLOC<br />
         Rails, Ruby, jQuery, Haml, Cap, HyperEstraier, OpenId, OAuth, SQS, RPXNow, Gettext, XML-RPC, Google maps
@@ -110,12 +117,16 @@
   <h3>Example projects</h3>
   <ul>
     <li>
+      Small-scale web projects <%= projects 'mymarks', 'training_planer', 'share_man' %>
+      (mostly born out of hack-nights)
+    </li>
+    <li>
       Simple/pragmatic solutions<br />
-      <%= projects 'parallel', 'url_store', 'bitfields', 'pru', 'tracked_plugins', 'random_records', 'text_filter', 'db_graph', 'smusher', 'rpx_now', 'fallback', 'scopify', 'restful_catch_all_route', 'cachy', 'string19', 'mini_memory_store', 'solr_collection', 'preheatable_cache' %><br />
+      <%= projects 'parallel', 'url_store', 'bitfields', 'pru', 'vendorer', 'zombie_passenger_killer', 'random_records', 'text_filter', 'db_graph', 'smusher', 'rpx_now', 'fallback', 'scopify', 'restful_catch_all_route', 'cachy', 'mini_memory_store', 'solr_collection', 'preheatable_cache', ',matching_bundle', 'email_vision' %><br />
     </li>
     <li>
       TDD<br />
-      <%= projects 'parallel_tests', 'single_test', 'rspec-instafail', 'rspec_enhanced_profile' %>,<br />
+      <%= projects 'parallel_tests', 'parallel_split_test', 'single_test', 'rspec-instafail', 'rspec_enhanced_profile' %>,<br />
       see test coverage of other Ruby/JS projects
     </li>
     <li>
@@ -124,15 +135,13 @@
     </li>
     <li>
       Metaprogramming<br />
-      <%= link_to 'open-uri + ssl', 'http://grosser.it/2010/07/23/open-uri-without-ssl-https-verification/' %>
       <%= link_to 'slow_update_all', 'http://grosser.it/2010/08/15/big-updates-block-database-use-slow_update_all/' %>
       <%= link_to 'mails without paths', 'http://grosser.it/2010/07/04/prevent-paths-in-mails-actionmailer/' %>,
       <%= link_to 'nested attributes sti fix', 'http://grosser.it/2010/06/04/fixing-rails-nested-attributes-on-collections-with-sti/' %>,
-      <%= link_to 'memcache io timout fix', 'http://grosser.it/2010/01/06/fixing-memcache-io-timeout-for-memcache-client/' %>,
-      <%= link_to 'expires_in lambda', 'http://grosser.it/2009/12/02/rails-caching-with-expires_in-lambda/' %>,
+      <%= link_to 'memcache io timeout fix', 'http://grosser.it/2010/01/06/fixing-memcache-io-timeout-for-memcache-client/' %>,
       <%= link_to 'touch_without_callbacks', 'http://grosser.it/2009/11/22/activerecord-touch_without_callbacks/' %>,
       <%= link_to 'descriptive raise', 'http://grosser.it/2009/10/15/descriptive-raise-tired-of-exception-classobject-expected/' %>,
-      <%= link_to 'sport startup seedup', 'http://grosser.it/2009/09/27/speeding-up-slow-spork-startup-for-rails-2-3/' %>,
+      <%= link_to 'spork startup speedup', 'http://grosser.it/2009/09/27/speeding-up-slow-spork-startup-for-rails-2-3/' %>,
       <%= link_to 'method parameter reflection', 'http://grosser.it/2009/07/05/ruby-monkey-reflection-to-get-method-parameter-names/' %>,
       <%= link_to 'caller method', 'http://grosser.it/2009/07/01/getting-the-caller-method-in-ruby/' %>,
       <%= link_to 'Array.to_ordered_hash', 'http://grosser.it/2009/06/08/array-to_ordered_hash-replacement-for-rails-2-3-activesupportorderedhash-new/' %>,
@@ -141,9 +150,11 @@
       ...
     </li>
     <li>
-      Crazy stuff<br />
-      <%= projects 'ha_plus', 'ruco', 'gem-dependent' %>
+      Misc<br/>
+      <%= link_to_project 'ruco' %> (commandline editor),
+      <%= projects 'gem-dependent', 'autoscaling', 'key_value', 'virtual_asset_path' %>
     </li>
+    <li>and tons <%= link_to 'more...', 'https://github.com/grosser' %></li>
   </ul>
 
   <h3>Languages</h3>
