@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'yaml'
+require 'json'
 require 'open-uri'
 require 'active_support/core_ext/hash'
 require 'action_view'
@@ -17,23 +18,39 @@ module CvHelper
   end
 
   def link_to_project(name)
-    link_to name, "http://github.com/grosser/#{name}"
+    link_to name, "https://github.com/grosser/#{name}"
   end
 end
 
-def data_from_github(username)
-  data = file_cache('.cached_github_data.yml') do
-    open("http://github.com/api/v1/yaml/#{username}").read
+def repos(username)
+  repos = []
+  per_page = 100
+  page = 1
+  loop do
+    found = api("/users/#{username}/repos?type=all&page=#{page}&per_page=#{per_page}")
+    repos += found
+    page += 1
+    break if found.size < per_page
   end
-  YAML.load(data)['user'].with_indifferent_access
+  repos
+end
+
+def data_from_github(username)
+  file_cache('.cached_github_data.json') do
+    api("/users/#{username}").merge("repos" => repos(username))
+  end
+end
+
+def api(path)
+  JSON.load(open("https://api.github.com#{path}").read)
 end
 
 def file_cache(file)
   if File.exist?(file) and File.mtime(file) > (Time.now - 24*60*60) # fresh ?
-    File.read(file)
+    JSON.load(File.read(file))
   else
     uncached = yield
-    File.open(file,'w'){|f| f.write uncached }
+    File.open(file,'w'){|f| f.write JSON.dump(uncached) }
     uncached
   end
 end

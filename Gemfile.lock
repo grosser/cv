@@ -1,5 +1,5 @@
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     abstract (1.0.0)
     actionpack (3.0.3)
@@ -21,6 +21,7 @@ GEM
     erubis (2.6.6)
       abstract (>= 1.0.0)
     i18n (0.5.0)
+    json (1.8.1)
     pdfkit (0.5.0)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -37,5 +38,6 @@ DEPENDENCIES
   actionpack
   activesupport
   i18n
+  json
   pdfkit
   wkhtmltopdf-binary

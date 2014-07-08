@@ -36,24 +36,24 @@
 
 <body>
 <% fork_me = image_tag('http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png', :style => 'position: absolute; top: 0; right: 0;') %>
-<%= link_to fork_me, 'http://github.com/grosser/cv', :id => 'badge' %>
+<%= link_to fork_me, 'https://github.com/grosser/cv', :id => 'badge' %>
 
 <div id="container">
 
   <div id="download">
-    <%= link_to 'Download', "http://github.com/grosser/cv/raw/gh-pages/cv.pdf" %>
+    <%= link_to 'Download', "https://raw.github.com/grosser/cv/gh-pages/cv.pdf" %>
   </div>
 
   <%= clearer %>
 
   <h1 class="centered">
-    <%= link_to 'Michael Grosser', "http://github.com/grosser" %>
+    <%= link_to 'Michael Grosser', "https://github.com/grosser" %>
   </h1>
 
   <p class=centered>
     <%= mail_to 'michael@grosser.it' %><br />
     <%= link_to 'grosser.it', 'http://grosser.it' %>
-    & <%= link_to 'github.com/grosser', 'http://github.com/grosser' %>
+    & <%= link_to 'github.com/grosser', 'https://github.com/grosser' %>
     <br />
     1983-11-21
   </p>
@@ -69,15 +69,23 @@
   <h3>Experience</h3>
   <ul>
     <li>
-      <em>2008-present</em> Created & contributed to <%= data[:repositories].size %> OS projects<br />
+      <em>2008-present</em> Created & contributed to <%= data["repos"].size %> OS projects<br />
       <small>
-        <%= data[:repositories].sum{|p| p[:watchers] - 1 } %> watchers /
-        <%= data[:repositories].select{|p| not p[:fork] }.sum{|p| p[:forks] } %> forks
+        <%= data["repos"].sum{|p| p["stargazers_count"] } %> stars /
+        <%= data["repos"].select{|p| not p["fork"] }.sum{|p| p["forks"] } %> forks
         (on own projects)
       </small>
     </li>
     <li>
-      <em>2011-present</em> Rails Engineer at PivotalLabs.com (San Franciscon)<br />
+      <em>2012-present</em> Rails Engineer at Zendesk.com (San Francisco)<br />
+      <small>
+        Cloud helpdesk.<br/>
+        Backend engineering and tooling for api/authentificaion/email/developer productivity.<br/>
+        Help developer standardization via boxen, rails 2 -> 3 upgrades without downtime on giant app.
+      </small>
+    </li>
+    <li>
+      <em>2011-2012</em> Rails Engineer at PivotalLabs.com (San Francisco)<br />
       <small>
         Awesome web-consultancy.<br/>
         Rails, Postgres, Heroku, Git, Sass, jQuery, Backbone and a teaspoon of Ember.js
@@ -117,16 +125,15 @@
   <h3>Example projects</h3>
   <ul>
     <li>
-      Small-scale web projects <%= projects 'mymarks', 'training_planer', 'share_man' %>
-      (mostly born out of hack-nights)
+      Small-scale web projects <%= projects 'air_man', 'travis_cron', 'mymarks', 'share_man' %>
     </li>
     <li>
       Simple/pragmatic solutions<br />
-      <%= projects 'parallel', 'url_store', 'bitfields', 'pru', 'vendorer', 'zombie_passenger_killer', 'random_records', 'text_filter', 'db_graph', 'smusher', 'rpx_now', 'fallback', 'scopify', 'restful_catch_all_route', 'cachy', 'mini_memory_store', 'solr_collection', 'preheatable_cache', ',matching_bundle', 'email_vision' %><br />
+      <%= projects 'parallel', 'wwtd', 'url_store', 'bitfields', 'pru', 'vendorer', 'zombie_passenger_killer', 'random_records', 'text_filter', 'db_graph', 'smusher', 'rpx_now', 'fallback', 'scopify', 'restful_catch_all_route', 'cachy', 'mini_memory_store', 'solr_collection', 'preheatable_cache', ',matching_bundle', 'email_vision' %><br />
     </li>
     <li>
       TDD<br />
-      <%= projects 'parallel_tests', 'parallel_split_test', 'single_test', 'rspec-instafail', 'rspec_enhanced_profile' %>,<br />
+      <%= projects 'parallel_tests', 'test_after_commit', 'parallel_split_test', 'single_test', 'rspec-instafail', 'rspec_enhanced_profile' %>,<br />
       see test coverage of other Ruby/JS projects
     </li>
     <li>
@@ -135,24 +142,22 @@
     </li>
     <li>
       Metaprogramming<br />
+      <%= link_to 'after_commit exceptions', 'http://grosser.it/2014/07/02/stop-rails-from-swallowing-after_commit-exceptions/' %>
+      <%= link_to 'minitest-rerun', 'http://grosser.it/2014/03/29/copy-pasteable-minitest-re-run-commands/' %>
       <%= link_to 'slow_update_all', 'http://grosser.it/2010/08/15/big-updates-block-database-use-slow_update_all/' %>
       <%= link_to 'mails without paths', 'http://grosser.it/2010/07/04/prevent-paths-in-mails-actionmailer/' %>,
       <%= link_to 'nested attributes sti fix', 'http://grosser.it/2010/06/04/fixing-rails-nested-attributes-on-collections-with-sti/' %>,
       <%= link_to 'memcache io timeout fix', 'http://grosser.it/2010/01/06/fixing-memcache-io-timeout-for-memcache-client/' %>,
-      <%= link_to 'touch_without_callbacks', 'http://grosser.it/2009/11/22/activerecord-touch_without_callbacks/' %>,
       <%= link_to 'descriptive raise', 'http://grosser.it/2009/10/15/descriptive-raise-tired-of-exception-classobject-expected/' %>,
-      <%= link_to 'spork startup speedup', 'http://grosser.it/2009/09/27/speeding-up-slow-spork-startup-for-rails-2-3/' %>,
       <%= link_to 'method parameter reflection', 'http://grosser.it/2009/07/05/ruby-monkey-reflection-to-get-method-parameter-names/' %>,
-      <%= link_to 'caller method', 'http://grosser.it/2009/07/01/getting-the-caller-method-in-ruby/' %>,
       <%= link_to 'Array.to_ordered_hash', 'http://grosser.it/2009/06/08/array-to_ordered_hash-replacement-for-rails-2-3-activesupportorderedhash-new/' %>,
-      <%= link_to 'File.write', 'http://grosser.it/2009/06/01/ruby-file-write/' %>,
       <%= link_to 'Actionview helpers on string', 'http://grosser.it/2009/05/30/all-actionview-helpers-on-strings/' %>,
       ...
     </li>
     <li>
       Misc<br/>
       <%= link_to_project 'ruco' %> (commandline editor),
-      <%= projects 'gem-dependent', 'autoscaling', 'key_value', 'virtual_asset_path' %>
+      <%= projects 'gem_on_demand', 'gem-dependent', 'autoscaling', 'key_value' %>
     </li>
     <li>and tons <%= link_to 'more...', 'https://github.com/grosser' %></li>
   </ul>
