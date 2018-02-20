@@ -21,7 +21,7 @@ GEM
     erubis (2.6.6)
       abstract (>= 1.0.0)
     i18n (0.5.0)
-    json (1.8.1)
+    json (2.1.0)
     pdfkit (0.5.0)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -41,3 +41,6 @@ DEPENDENCIES
   json
   pdfkit
   wkhtmltopdf-binary
+
+BUNDLED WITH
+   1.16.1
